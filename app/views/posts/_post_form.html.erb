@@ -2,6 +2,6 @@
     <%= f.label :title, "Title" %><br>
     <%= f.text_field :title %><br>
     <%= f.label :body, "Body" %><br>
-    <%= f.text_area :body %><br>
+    <%= f.rich_text_area :body %><br>
     <%= f.submit "create", disable_with: 'createing...' %>
 <% end %>
