@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(id)
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -12,24 +12,24 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(Post_params)
+    @post = Post.new(post_params)
 
     if @post.save
-      redirect_to @customer, notice: "aew, post criado."
+      redirect_to @post, notice: "aew, post criado."
     else
       render :new
     end      
   end
 
   def edit
-    @post = Post.find(id)
+    @post = Post.find(params[:id])
   end
   
 
   def update
-    @post = Post.find(id)
+    @post = Post.find(params[:id])
 
-    if @post.update(Post_params)
+    if @post.update(post_params)
       redirect_to @post
     else
       render :edit
@@ -37,14 +37,14 @@ class PostsController < ApplicationController
   end
 
   def delete
-    @post = Post.find(id)
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path, notice: 'post deletado com sucesso.'
   end
 
   private
 
-  def Post_params
+  def post_params
     params.require(:post).permit(
       :title,
       :body
