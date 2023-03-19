@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  password: <%= Rails.application.credentials.db_password %>
+  host: localhost
+
+development:
+  <<: *default
+  database: FORUM_ON_RAILS_development
+  username: <%= Rails.application.credentials.db_login %>
+
+test:
+  <<: *default
+  database: FORUM_ON_RAILS_test
+  username: <%= Rails.application.credentials.db_login %>
+
+
+production:
+  <<: *default
+  database: FORUM_ON_RAILS_production
+  username: FORUM_ON_RAILS
+  password: <%= ENV["FORUM_ON_RAILS_DATABASE_PASSWORD"] %>
