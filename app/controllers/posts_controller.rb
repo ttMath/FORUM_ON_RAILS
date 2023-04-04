@@ -6,9 +6,14 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
-
   def new
-    @post = Post.new
+
+    if current_user
+      @post = Post.new
+    else
+      redirect_to new_user_registration_path
+    end
+
   end
 
   def create
@@ -18,13 +23,13 @@ class PostsController < ApplicationController
       redirect_to @post, notice: "aew, post criado."
     else
       render :new
-    end      
+    end
   end
 
   def edit
     @post = Post.find(params[:id])
   end
-  
+
 
   def update
     @post = Post.find(params[:id])
@@ -49,7 +54,7 @@ class PostsController < ApplicationController
       :title,
       :body
     )
-    
+
   end
-  
+
 end
