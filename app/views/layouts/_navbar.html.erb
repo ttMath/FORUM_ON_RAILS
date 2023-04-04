@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Forum on Rails</a>
+    <a class="navbar-brand" href='<%= root_url %>'>Forum on Rails</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,9 +25,9 @@
             <li><button class="dropdown-item" type="button">Action</button></li>
             <li><button class="dropdown-item" type="button">Another action</button></li>
             <% if user_signed_in? %>
-            <li><button class="dropdown-item" type="button"><%= link_to "log out", destroy_user_session_path, data: { turbo_method: :delete } %></button></li>
+                <li><%= link_to "log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item", type: "button" %></li>
             <% else %>
-            <li><button class="dropdown-item" type="button"><%= link_to "log in", new_user_session_path %></button></li>
+                <li><%= link_to "login", new_user_session_path, class: "dropdown-item", type: "button" %></li>
             <% end %>
         </ul>
        </div>

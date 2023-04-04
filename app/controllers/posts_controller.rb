@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
   def new
 
-    if current_user
+    if user_signed_in?
       @post = Post.new
     else
       redirect_to new_user_registration_path
