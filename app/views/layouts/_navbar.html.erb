@@ -19,7 +19,11 @@
       <span class="navbar-text">
        <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            <% if user_signed_in? %>
+              <%= current_user.email %>
+            <% else %>
+              Logue-se
+            <% end %>
         </button>
         <ul class="dropdown-menu">
             <li><button class="dropdown-item" type="button">Action</button></li>
