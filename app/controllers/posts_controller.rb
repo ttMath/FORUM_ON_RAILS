@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: %i[show index]
   def index
     @post = Post.all
   end
@@ -7,13 +8,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
   def new
-
-    if user_signed_in?
-      @post = Post.new
-    else
-      redirect_to new_user_registration_path
-    end
-
+    @post = Post.new
   end
 
   def create
