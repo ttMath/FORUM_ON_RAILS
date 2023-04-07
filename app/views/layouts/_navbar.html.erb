@@ -17,22 +17,18 @@
         </li>
       </ul>
       <span class="navbar-text">
+       <% if user_signed_in? %>
        <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <% if user_signed_in? %>
-              <%= current_user.email %>
-            <% else %>
-              Logue-se
-            <% end %>
+          <%= current_user.name %>
         </button>
         <ul class="dropdown-menu">
-            <li><button class="dropdown-item" type="button">Action</button></li>
-            <li><button class="dropdown-item" type="button">Another action</button></li>
-            <% if user_signed_in? %>
-                <li><%= link_to "log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item", type: "button" %></li>
-            <% else %>
-                <li><%= link_to "login", new_user_session_path, class: "dropdown-item", type: "button" %></li>
-            <% end %>
+              <li><%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %></li>
+              <li>< %=## link_to "Account", %>
+              <li><%= link_to "log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item", type: "button" %></li>
+        <% else %>
+           <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+        <% end %>
         </ul>
        </div>
       </span>

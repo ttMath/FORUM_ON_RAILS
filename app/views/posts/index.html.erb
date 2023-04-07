@@ -1,6 +1,1 @@
-<h1>All posts in this site</h1>
- <% Post.all.each do |p| %>
- <%= p.title %><br>
- <%= p.body %><br>
- <% end %>
-
+<%= render "post" %>
