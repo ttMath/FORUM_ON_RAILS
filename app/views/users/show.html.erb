@@ -1,0 +1,14 @@
+<h1>Perfil</h1>
+<p>nome: <%= @user.name %></p>
+
+<% @user.post.each do |p| %>
+<a href="<%= posts_url %>/<%= p.id %>" class="card mb-3 mx-5 text-decoration-none">
+    <div class="card-body text-decoration-none">
+      <p class="card-text"><small class="text-body-secundary text-decoration-none">Posted by <%= p.user.name %></small></p>
+      <h5 class="card-title"><%= p.title %></h5>
+      <p class="card-text"><%= p.body %></p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+</a>
+<% end %>
+

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  get '/profile', to: 'users#show'
   resources :posts
+
 
 
 end
