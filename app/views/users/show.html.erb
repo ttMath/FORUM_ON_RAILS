@@ -1,6 +1,6 @@
 <h1>Perfil</h1>
 <p>nome: <%= @user.name %></p>
-
+<h1>Your posts:</h1>
 <% @user.post.each do |p| %>
     <a href="<%= posts_url %>/<%= p.id %>" class="card mb-3 mx-5 text-decoration-none">
         <div class="card-body text-decoration-none">
